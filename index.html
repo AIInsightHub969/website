@@ -559,6 +559,18 @@
         </p>
 
     </footer>
+    <script>
+window.addEventListener("scroll", function() {
+    document.querySelectorAll("section").forEach(function(section) {
+        let position = section.getBoundingClientRect().top;
+
+        if (position < window.innerHeight - 100) {
+            section.style.opacity = "1";
+            section.style.transform = "translateY(0)";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
