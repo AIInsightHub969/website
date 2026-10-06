@@ -282,13 +282,52 @@
                 font-size: 28px;
             }
         }
-    </style>
+   .theme-button {
+    background: transparent;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-button:hover {
+    background: #38bdf8;
+    color: #06111f;
+    transform: rotate(20deg);
+}.light-mode {
+    background: #f5f7fa;
+    color: #111827;
+}
+
+.light-mode section > p,
+.light-mode .card p {
+    color: #374151;
+}
+
+.light-mode .card {
+    background: white;
+    border-color: #d1d5db;
+}
+
+.light-mode .highlight {
+    background: #e5f6ff;
+}
+
+.light-mode footer {
+    background: #e5e7eb;
+    color: #374151;
+} </style>
 </head>
 
 <body>
 
     <!-- NAVIGATION -->
     <nav>
+        <button onclick="toggleTheme()" class="theme-button">🌙</button>
         <h2>🤖 AI Future</h2>
 
         <div>
@@ -571,6 +610,10 @@ window.addEventListener("scroll", function() {
     });
 });
 </script>
-
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+}
+</script>
 </body>
 </html>
