@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AI - Understand the Future</title>
 
     <style>
@@ -15,16 +16,18 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #07111f;
+            background: #050b16;
             color: white;
             line-height: 1.7;
         }
 
+        /* NAVIGATION */
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: #0b1b2d;
+            background: rgba(5, 11, 22, 0.95);
+            backdrop-filter: blur(10px);
             padding: 18px 8%;
             display: flex;
             justify-content: space-between;
@@ -34,109 +37,180 @@
 
         nav h2 {
             color: #38bdf8;
+            letter-spacing: 1px;
         }
 
         nav a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 22px;
             font-size: 14px;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: #38bdf8;
         }
 
+        /* HERO */
         .hero {
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #07111f, #0b2942);
+            padding: 50px 20px;
+            background:
+                radial-gradient(circle at top, #12385a, transparent 45%),
+                linear-gradient(135deg, #050b16, #0a2036);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            width: 350px;
+            height: 350px;
+            border: 1px solid #38bdf8;
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.12;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.08;
+            }
+
+            50% {
+                transform: scale(1.25);
+                opacity: 0.18;
+            }
         }
 
         .hero h1 {
-            font-size: 55px;
+            font-size: 62px;
             color: #38bdf8;
             margin-bottom: 10px;
+            text-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
+            z-index: 1;
         }
 
         .hero h2 {
-            font-size: 32px;
+            font-size: 34px;
             margin-bottom: 20px;
+            z-index: 1;
         }
 
         .hero p {
-            max-width: 700px;
+            max-width: 750px;
             color: #cbd5e1;
             font-size: 18px;
+            z-index: 1;
         }
 
         .button {
             display: inline-block;
-            margin-top: 30px;
-            padding: 13px 28px;
+            margin-top: 32px;
+            padding: 14px 32px;
             background: #38bdf8;
             color: #06111f;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+            z-index: 1;
         }
 
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.6);
+        }
+
+        /* SECTIONS */
         section {
-            padding: 70px 8%;
-            max-width: 1200px;
+            padding: 85px 8%;
+            max-width: 1250px;
             margin: auto;
         }
 
         section h2 {
             color: #38bdf8;
-            font-size: 32px;
+            font-size: 34px;
             margin-bottom: 20px;
         }
 
-        section p {
+        section > p {
             color: #cbd5e1;
             max-width: 900px;
+            font-size: 17px;
         }
 
+        /* CARDS */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            gap: 22px;
+            margin-top: 35px;
         }
 
         .card {
-            background: #0d2034;
-            padding: 25px;
-            border-radius: 15px;
+            background: linear-gradient(145deg, #0c1c30, #091526);
+            padding: 28px;
+            border-radius: 18px;
             border: 1px solid #183653;
+            transition: 0.35s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 12px 35px rgba(56, 189, 248, 0.12);
         }
 
         .card h3 {
             color: #38bdf8;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 21px;
         }
 
         .card p {
+            color: #cbd5e1;
             font-size: 15px;
         }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #050c15;
-            color: #94a3b8;
+        /* HIGHLIGHT */
+        .highlight {
+            background: linear-gradient(135deg, #0b2942, #071525);
+            border-top: 1px solid #183653;
+            border-bottom: 1px solid #183653;
         }
 
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #030811;
+            color: #94a3b8;
+            border-top: 1px solid #183653;
+        }
+
+        footer strong {
+            color: #38bdf8;
+        }
+
+        /* MOBILE */
         @media (max-width: 700px) {
+
             nav {
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
+                padding: 15px;
             }
 
             nav a {
@@ -144,12 +218,28 @@
                 font-size: 12px;
             }
 
+            .hero {
+                min-height: 80vh;
+            }
+
             .hero h1 {
-                font-size: 38px;
+                font-size: 40px;
             }
 
             .hero h2 {
                 font-size: 25px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            section h2 {
+                font-size: 28px;
             }
         }
     </style>
@@ -157,8 +247,10 @@
 
 <body>
 
+    <!-- NAVIGATION -->
     <nav>
-        <h2>AI Future</h2>
+        <h2>🤖 AI Future</h2>
+
         <div>
             <a href="#what">What is AI?</a>
             <a href="#uses">Uses</a>
@@ -167,136 +259,264 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <div class="hero">
+
         <h1>Artificial Intelligence</h1>
+
         <h2>Understand the Future</h2>
+
         <p>
             Explore how Artificial Intelligence is changing our world,
-            improving our lives, and shaping the future.
+            improving our lives, and shaping the future of humanity.
         </p>
-        <a class="button" href="#what">Explore AI</a>
+
+        <a class="button" href="#what">Explore AI →</a>
+
     </div>
 
+    <!-- WHAT IS AI -->
     <section id="what">
+
         <h2>What is AI?</h2>
+
         <p>
             Artificial Intelligence is a technology that allows computers
-            and machines to learn, solve problems, understand information,
-            and make smart decisions.
+            and machines to learn, understand information, recognize patterns,
+            solve problems, and make intelligent decisions.
         </p>
+
     </section>
 
-    <section>
+    <!-- HOW AI WORKS -->
+    <section class="highlight">
+
         <h2>How AI Works</h2>
+
         <p>
-            AI uses data, algorithms, and computing power to recognize
-            patterns, learn from information, and produce useful results.
+            AI works by using data, algorithms, and powerful computers.
+            These systems analyze information, find patterns, learn from
+            examples, and produce useful results.
         </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>📊 Data</h3>
+                <p>
+                    AI learns from large amounts of information and examples.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚙️ Algorithms</h3>
+                <p>
+                    Algorithms help AI process information and recognize patterns.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🧠 Learning</h3>
+                <p>
+                    AI systems can improve their performance using experience and data.
+                </p>
+            </div>
+
+        </div>
+
     </section>
 
+    <!-- AI EVERYDAY LIFE -->
     <section id="uses">
+
         <h2>AI in Everyday Life</h2>
 
         <div class="cards">
+
             <div class="card">
-                <h3>Smartphones</h3>
-                <p>Face recognition, autocorrect, cameras, and voice assistants use AI.</p>
+                <h3>📱 Smartphones</h3>
+                <p>
+                    Face recognition, cameras, autocorrect, and voice assistants
+                    use AI technology.
+                </p>
             </div>
 
             <div class="card">
-                <h3>Google Maps</h3>
-                <p>AI helps find routes, estimate travel time, and understand traffic.</p>
+                <h3>🗺️ Google Maps</h3>
+                <p>
+                    AI helps with routes, travel times, navigation, and traffic information.
+                </p>
             </div>
 
             <div class="card">
-                <h3>YouTube</h3>
-                <p>AI recommends videos based on interests and viewing activity.</p>
+                <h3>▶️ YouTube</h3>
+                <p>
+                    AI recommends videos based on interests and viewing activity.
+                </p>
             </div>
 
             <div class="card">
-                <h3>Online Shopping</h3>
-                <p>AI helps recommend products and improve the shopping experience.</p>
+                <h3>🛒 Online Shopping</h3>
+                <p>
+                    AI can recommend products and improve the shopping experience.
+                </p>
             </div>
+
         </div>
+
     </section>
 
+    <!-- USES OF AI -->
     <section>
-        <h2>Uses of AI</h2>
+
+        <h2>Important Uses of AI</h2>
 
         <div class="cards">
+
             <div class="card">
-                <h3>Education</h3>
-                <p>AI can support students, teachers, and personalized learning.</p>
+                <h3>🎓 Education</h3>
+                <p>
+                    AI can support students, teachers, research, and personalized learning.
+                </p>
             </div>
 
             <div class="card">
-                <h3>Healthcare</h3>
-                <p>AI can help doctors analyze information and support medical research.</p>
+                <h3>🏥 Healthcare</h3>
+                <p>
+                    AI can help analyze medical information and support research.
+                </p>
             </div>
 
             <div class="card">
-                <h3>Transportation</h3>
-                <p>AI can help manage traffic, navigation, and transportation systems.</p>
+                <h3>🚗 Transportation</h3>
+                <p>
+                    AI can help with navigation, traffic management, and transportation systems.
+                </p>
             </div>
 
             <div class="card">
-                <h3>Business</h3>
-                <p>AI can automate tasks, analyze data, and help businesses make decisions.</p>
+                <h3>💼 Business</h3>
+                <p>
+                    AI can automate tasks, analyze information, and support business decisions.
+                </p>
             </div>
+
         </div>
+
     </section>
 
-    <section id="future">
+    <!-- FUTURE JOBS -->
+    <section id="future" class="highlight">
+
         <h2>AI & Future Jobs</h2>
+
         <p>
-            AI will change many types of work. At the same time, it will
-            create new opportunities in technology, science, healthcare,
-            business, robotics, and many other fields.
+            AI will change many types of work. At the same time, it can create
+            new opportunities in technology, science, healthcare, robotics,
+            business, cybersecurity, and many other fields.
         </p>
+
     </section>
 
+    <!-- IMPORTANCE -->
     <section id="importance">
+
         <h2>Why AI Is Important</h2>
+
         <p>
             AI can save time, make life easier, support better decisions,
-            solve complex problems, and help people work smarter.
+            solve complex problems, increase productivity, and help people
+            work more efficiently.
         </p>
+
     </section>
 
+    <!-- FUTURE OF AI -->
     <section>
-        <h2>Future of AI</h2>
+
+        <h2>🔮 Future of AI</h2>
+
         <p>
             The future of AI is full of possibilities. AI may become an
             important part of education, healthcare, transportation,
-            science, communication, and many other areas of life.
+            science, communication, robotics, and many other areas of life.
         </p>
-    </section>
 
-    <section>
-        <h2>AI: Benefits & Challenges</h2>
         <div class="cards">
+
             <div class="card">
-                <h3>Benefits</h3>
-                <p>AI can save time, increase productivity, and help solve problems.</p>
+                <h3>🚀 Innovation</h3>
+                <p>
+                    AI can help people develop new ideas, technologies, and solutions.
+                </p>
             </div>
 
             <div class="card">
-                <h3>Challenges</h3>
-                <p>AI also requires responsible use, privacy protection, safety, and human oversight.</p>
+                <h3>🔬 Science</h3>
+                <p>
+                    AI can help researchers analyze complex information and discover patterns.
+                </p>
             </div>
+
+            <div class="card">
+                <h3>🌍 Global Future</h3>
+                <p>
+                    Responsible AI can contribute to solving important challenges around the world.
+                </p>
+            </div>
+
         </div>
+
     </section>
 
+    <!-- BENEFITS AND CHALLENGES -->
+    <section class="highlight">
+
+        <h2>AI: Benefits & Challenges</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>✅ Benefits</h3>
+                <p>
+                    AI can save time, increase productivity, support learning,
+                    and help solve difficult problems.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚠️ Challenges</h3>
+                <p>
+                    AI requires responsible use, privacy protection, safety,
+                    fairness, and human oversight.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HUMAN FUTURE -->
     <section>
-        <h2>AI and Human Future</h2>
+
+        <h2>🤝 AI and Human Future</h2>
+
         <p>
             AI is a powerful tool, but humans remain important for creativity,
             responsibility, empathy, critical thinking, and meaningful decisions.
+            The future will depend on how wisely people use AI.
         </p>
+
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 AI - Understand the Future | Created by Hanif</p>
+
+        <p>
+            © 2026 <strong>AI - Understand the Future</strong>
+            | Created by Hanif
+        </p>
+
     </footer>
 
 </body>
