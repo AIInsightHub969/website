@@ -1,20 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI - Understand the Future</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #07111f;
+            color: white;
+            line-height: 1.7;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0b1b2d;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #183653;
+        }
+
+        nav h2 {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #07111f, #0b2942);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 28px;
+            background: #38bdf8;
+            color: #06111f;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 70px 8%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section h2 {
+            color: #38bdf8;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            color: #cbd5e1;
+            max-width: 900px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #0d2034;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #183653;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #050c15;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
 <body>
 
-    <h1>Artificial Intelligence</h1>
+    <nav>
+        <h2>AI Future</h2>
+        <div>
+            <a href="#what">What is AI?</a>
+            <a href="#uses">Uses</a>
+            <a href="#future">Future</a>
+            <a href="#importance">Importance</a>
+        </div>
+    </nav>
 
-    <h2>Understand the Future</h2>
+    <div class="hero">
+        <h1>Artificial Intelligence</h1>
+        <h2>Understand the Future</h2>
+        <p>
+            Explore how Artificial Intelligence is changing our world,
+            improving our lives, and shaping the future.
+        </p>
+        <a class="button" href="#what">Explore AI</a>
+    </div>
 
-    <p>
-        Explore how Artificial Intelligence is changing our world
-        and shaping the future.
-    </p>
+    <section id="what">
+        <h2>What is AI?</h2>
+        <p>
+            Artificial Intelligence is a technology that allows computers
+            and machines to learn, solve problems, understand information,
+            and make smart decisions.
+        </p>
+    </section>
 
-    <h2>What is AI?</h2>
+    <section>
+        <h2>How AI Works</h2>
+        <p>
+            AI uses data, algorithms, and computing power to recognize
+            patterns, learn from information, and produce useful results.
+        </p>
+    </section>
 
-    <p>
-        Artificial Intelligence is a technology that allows computers
-        and machines to learn, solve problems, and make smart decisions.
-    </p>
+    <section id="uses">
+        <h2>AI in Everyday Life</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Smartphones</h3>
+                <p>Face recognition, autocorrect, cameras, and voice assistants use AI.</p>
+            </div>
+
+            <div class="card">
+                <h3>Google Maps</h3>
+                <p>AI helps find routes, estimate travel time, and understand traffic.</p>
+            </div>
+
+            <div class="card">
+                <h3>YouTube</h3>
+                <p>AI recommends videos based on interests and viewing activity.</p>
+            </div>
+
+            <div class="card">
+                <h3>Online Shopping</h3>
+                <p>AI helps recommend products and improve the shopping experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Uses of AI</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Education</h3>
+                <p>AI can support students, teachers, and personalized learning.</p>
+            </div>
+
+            <div class="card">
+                <h3>Healthcare</h3>
+                <p>AI can help doctors analyze information and support medical research.</p>
+            </div>
+
+            <div class="card">
+                <h3>Transportation</h3>
+                <p>AI can help manage traffic, navigation, and transportation systems.</p>
+            </div>
+
+            <div class="card">
+                <h3>Business</h3>
+                <p>AI can automate tasks, analyze data, and help businesses make decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="future">
+        <h2>AI & Future Jobs</h2>
+        <p>
+            AI will change many types of work. At the same time, it will
+            create new opportunities in technology, science, healthcare,
+            business, robotics, and many other fields.
+        </p>
+    </section>
+
+    <section id="importance">
+        <h2>Why AI Is Important</h2>
+        <p>
+            AI can save time, make life easier, support better decisions,
+            solve complex problems, and help people work smarter.
+        </p>
+    </section>
+
+    <section>
+        <h2>Future of AI</h2>
+        <p>
+            The future of AI is full of possibilities. AI may become an
+            important part of education, healthcare, transportation,
+            science, communication, and many other areas of life.
+        </p>
+    </section>
+
+    <section>
+        <h2>AI: Benefits & Challenges</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Benefits</h3>
+                <p>AI can save time, increase productivity, and help solve problems.</p>
+            </div>
+
+            <div class="card">
+                <h3>Challenges</h3>
+                <p>AI also requires responsible use, privacy protection, safety, and human oversight.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>AI and Human Future</h2>
+        <p>
+            AI is a powerful tool, but humans remain important for creativity,
+            responsibility, empathy, critical thinking, and meaningful decisions.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 AI - Understand the Future | Created by Hanif</p>
+    </footer>
 
 </body>
 </html>
