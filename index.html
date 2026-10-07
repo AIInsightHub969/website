@@ -723,5 +723,22 @@ function toggleTheme() {
     document.body.classList.toggle("light-mode");
 }
 </script>
-</body>
-</html>
+<script>
+const text = "Artificial Intelligence";
+let index = 0;
+
+<script>
+const text = "Artificial Intelligence";
+let index = 0;
+
+function typeText() {
+    if (index < text.length) {
+        document.getElementById("typing").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 100);
+    }
+}
+
+document.getElementById("typing").textContent = "";
+typeText();
+</script>
