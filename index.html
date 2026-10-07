@@ -449,7 +449,14 @@ body.light-mode footer {
 .article-card p {
     color: #cbd5e1;
     line-height: 1.7;
+} .article-card h4 {
+    transition: 0.3s;
 }
+
+.article-card:hover h4 {
+    transform: translateX(5px);
+    text-shadow: 0 0 15px #38bdf8;
+}                       
 @media (max-width: 768px) {
     .article-cards {
         grid-template-columns: 1fr;
