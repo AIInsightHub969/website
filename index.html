@@ -452,7 +452,19 @@ body.light-mode footer {
     .article-cards {
         grid-template-columns: 1fr;
     }
-}   
+}   .article-card {
+    animation: cardGlow 4s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(56, 189, 248, 0.08);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.22);
+    }
+}              
 </style>
 </head>
 
