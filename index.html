@@ -372,6 +372,55 @@ body.light-mode .highlight {
 body.light-mode footer {
     background: #e5e7eb;
     color: #374151;
+}.ai-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ai-particles span {
+    position: absolute;
+    color: #38bdf8;
+    font-size: 22px;
+    opacity: 0.25;
+    animation: floatAI 6s ease-in-out infinite;
+}
+
+.ai-particles span:nth-child(1) {
+    top: 20%;
+    left: 15%;
+}
+
+.ai-particles span:nth-child(2) {
+    top: 35%;
+    right: 15%;
+}
+
+.ai-particles span:nth-child(3) {
+    bottom: 25%;
+    left: 25%;
+}
+
+.ai-particles span:nth-child(4) {
+    bottom: 20%;
+    right: 25%;
+}
+
+.ai-particles span:nth-child(5) {
+    top: 55%;
+    left: 50%;
+}
+
+@keyframes floatAI {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
 } </style>
 </head>
 
@@ -392,7 +441,13 @@ body.light-mode footer {
 
     <!-- HERO -->
     <div class="hero">
-
+<div class="ai-particles">
+    <span>AI</span>
+    <span>01</span>
+    <span>10</span>
+    <span>🤖</span>
+    <span>AI</span>
+</div>                 
         <h1>Artificial Intelligence</h1>
 
         <h2>Understand the Future</h2>
