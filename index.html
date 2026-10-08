@@ -477,7 +477,66 @@ body.light-mode footer {
     transform: translateY(-12px) scale(1.03);
     border-color: #38bdf8;
     box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
-}              
+} 
+        /* YOUTUBE CARD */
+.youtube-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border: 1px solid rgba(255, 0, 0, 0.35);
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.10), rgba(20, 20, 20, 0.85));
+    transition: 0.35s ease;
+}
+
+.youtube-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 0, 0, 0.75);
+    box-shadow: 0 0 28px rgba(255, 0, 0, 0.28);
+}
+
+.youtube-icon {
+    min-width: 62px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0 0 22px rgba(255, 0, 0, 0.45);
+}
+
+.youtube-content h3 {
+    margin: 0 0 8px;
+    color: #ffffff;
+}
+
+.youtube-content p {
+    margin: 0 0 9px;
+}
+
+.youtube-ai {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ff4d4d;
+}
+
+@media (max-width: 600px) {
+    .youtube-card {
+        gap: 12px;
+    }
+
+    .youtube-icon {
+        min-width: 52px;
+        height: 38px;
+        font-size: 21px;
+    }
+}
 </style>
 </head>
 
@@ -604,12 +663,17 @@ body.light-mode footer {
                 </p>
             </div>
 
-            <div class="card">
-                <h3>▶️ YouTube</h3>
-                <p>
-                    AI recommends videos based on interests and viewing activity.
-                </p>
-            </div>
+           <div class="card youtube-card">
+    <div class="youtube-icon">▶</div>
+
+    <div class="youtube-content">
+        <h3>YouTube</h3>
+        <p>
+            AI recommends videos based on interests and viewing activity.
+        </p>
+        <span class="youtube-ai">AI Powered Recommendations</span>
+    </div>
+</div>
 
             <div class="card">
                 <h3>🛒 Online Shopping</h3>
