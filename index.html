@@ -487,7 +487,15 @@ body.light-mode footer {
 }   .article-card {
     animation: cardGlow 4s ease-in-out infinite;
 }
+@keyframes floatAI {
+    0%, 100% {
+        transform: translateY(0px);
+    }
 
+    50% {
+        transform: translateY(-18px);
+    }
+}
 @keyframes cardGlow {
     0%, 100% {
         box-shadow: 0 0 5px rgba(56, 189, 248, 0.08);
