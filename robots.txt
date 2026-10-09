@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aiinsighthub969.github.io/website/sitemap.xml
