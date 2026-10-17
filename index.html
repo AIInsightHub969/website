@@ -1159,6 +1159,9 @@ function toggleTheme() {
 function searchWebsite() {
     const input = document.getElementById("siteSearchInput");
     const results = document.getElementById("siteSearchResults");
+
+    if (!input || !results) return;
+
     const query = input.value.trim().toLowerCase();
 
     results.replaceChildren();
@@ -1173,33 +1176,64 @@ function searchWebsite() {
     );
 
     let found = 0;
+    const seen = new Set();
 
     sections.forEach(section => {
         const text = section.innerText || "";
-        if (text.toLowerCase().includes(query)) {
-            const heading = section.querySelector("h1, h2, h3");
-            const title = heading ? heading.innerText : "Website content";
 
-            const item = document.createElement("p");
-            const link = document.createElement("a");
-            link.href = "#" + (section.id || "");
-            link.textContent = title;
-            item.appendChild(link);
-            results.appendChild(item);
-            found++;
+        if (!text.toLowerCase().includes(query)) {
+            return;
         }
+
+        let target = section;
+
+        while (
+            target &&
+            !target.id &&
+            target !== document.body
+        ) {
+            target = target.parentElement;
+        }
+
+        if (!target || !target.id || seen.has(target.id)) {
+            return;
+        }
+
+        seen.add(target.id);
+
+        const heading = section.querySelector("h1, h2, h3");
+        const title = heading
+            ? heading.innerText.trim()
+            : "Website content";
+
+        const item = document.createElement("p");
+        const link = document.createElement("a");
+
+        link.href = "#" + target.id;
+        link.textContent = title;
+        link.style.color = "#38bdf8";
+
+        item.appendChild(link);
+        results.appendChild(item);
+
+        found++;
     });
 
     if (found === 0) {
-        results.textContent = "No matching content found. Try another word.";
+        results.textContent =
+            "No matching content found. Try another word.";
     }
 }
 
-document.getElementById("siteSearchInput").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        searchWebsite();
-    }
-});
+const searchInput = document.getElementById("siteSearchInput");
+
+if (searchInput) {
+    searchInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            searchWebsite();
+        }
+    });
+}
 </script>
  </body>
 </html>             
