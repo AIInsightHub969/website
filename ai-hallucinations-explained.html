@@ -120,7 +120,10 @@ figcaption {
   padding: 18px;
   margin: 22px 0;
 }
-.toc { position: sticky; top: 85px; }
+.toc {
+  position: static;
+  top: auto;
+}
 .toc h3 { margin-top: 0; }
 .toc ul { padding-left: 20px; margin-bottom: 0; }
 .toc li { margin: 7px 0; }
@@ -188,7 +191,7 @@ body.light td { color: #293c52; }
 body.light article h3 { color: #152338; }
 @media (max-width: 760px) {
   .article-layout { grid-template-columns: 1fr; }
-  .toc { position: static; order: -1; }
+  .toc { position: static; order: 0; }
   .hero { padding-top: 42px; }
   .navlinks { gap: 10px; }
   h2 { font-size: 1.55rem; }
