@@ -611,20 +611,22 @@ body.light-mode footer {
 
 <body>
   <!-- NAVIGATION -->
-    <nav>
-        <button onclick="toggleTheme()" class="theme-button">🌙</button>
+<nav>
+    <button onclick="toggleTheme()" class="theme-button">🌙</button>
 
-        <h2>🤖 AIInsight</h2>
+    <h2>🤖 AIInsight</h2>
 
-        <div>
-            <a href="#what">What is AI?</a>
-            <a href="#uses">Uses</a>
-            <a href="#future">Future</a>
-            <a href="#importance">Importance</a>
-            <a href="#article">📖 Article</a>
-            <a href="#about">About</a>
-        </div>
-    </nav>
+    <div>
+        <a href="#what">What is AI?</a>
+        <a href="#how">How AI Works</a>
+        <a href="#uses">Uses</a>
+        <a href="#important-uses">Important Uses</a>
+        <a href="#importance">Importance</a>
+        <a href="#future">Future</a>
+        <a href="#ai-articles">📖 Articles</a>
+        <a href="#creator">About</a>
+    </div>
+</nav>
      <!-- WEBSITE SEARCH -->
     <section id="site-search" style="text-align:center; padding:25px 15px;">
         <h2>🔎 Search AI Website</h2>
@@ -798,7 +800,8 @@ body.light-mode footer {
 
 </section>
   <!-- HOW AI WORKS -->
-<section class="highlight">
+<section id="how" class="highlight">
+    
 
     <h2>🧠 How AI Works</h2>
 
@@ -831,7 +834,7 @@ body.light-mode footer {
 </section>
 
 <!-- USES OF AI -->
-<section>
+<section id="important-uses">
 
     <h2>🚀 Important Uses of Artificial Intelligence</h2>
 
@@ -1065,15 +1068,7 @@ body.light-mode footer {
     </p>
 
 </section>    
-<a href="#" class="top-button">↑</a>
-    <footer>
 
-        <p>
-            © 2026 <strong>AIInsight</strong>
-            | Created by Hanif | AI Education Website
-        </p>
-
-    </footer>
     <script>
 window.addEventListener("scroll", function() {
     document.querySelectorAll("section").forEach(function(section) {
@@ -1193,6 +1188,16 @@ function toggleTheme() {
 
   </div>
 </section>
+
+<a href="#" class="top-button">↑</a>
+
+<footer>
+    <p>
+        © 2026 <strong>AIInsight</strong>
+        | Created by Hanif | AI Education Website
+    </p>
+</footer>
+        
     <script>
 function searchWebsite() {
     const input = document.getElementById("siteSearchInput");
