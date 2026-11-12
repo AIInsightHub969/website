@@ -1188,7 +1188,7 @@ function toggleTheme() {
     </p>
 </footer>
         
-    <script>
+<script>
 function searchWebsite() {
     const input = document.getElementById("siteSearchInput");
     const results = document.getElementById("siteSearchResults");
@@ -1196,66 +1196,56 @@ function searchWebsite() {
     if (!input || !results) return;
 
     const query = input.value.trim().toLowerCase();
-
     results.replaceChildren();
 
     if (!query) {
-        results.textContent = "Please enter something to search.";
+        results.textContent = "Please enter a search word.";
         return;
     }
 
-    const sections = document.querySelectorAll(
-        "body > section, body > div.hero, body > div:not(#siteSearchResults), body article"
+    const elements = document.querySelectorAll(
+        "h1, h2, h3, p, li, article"
     );
 
-    let found = 0;
-    const seen = new Set();
+    const foundSections = new Map();
 
-    sections.forEach(section => {
-        const text = section.innerText || "";
+    elements.forEach(element => {
+        if (element.closest("#site-search")) return;
 
-        if (!text.toLowerCase().includes(query)) {
-            return;
-        }
+        if (!element.innerText.toLowerCase().includes(query)) return;
 
-        let target = section;
+        const section = element.closest("section[id]");
 
-        while (
-            target &&
-            !target.id &&
-            target !== document.body
-        ) {
-            target = target.parentElement;
-        }
-
-        if (!target || !target.id || seen.has(target.id)) {
-            return;
-        }
-
-        seen.add(target.id);
+        if (!section || foundSections.has(section.id)) return;
 
         const heading = section.querySelector("h1, h2, h3");
-        const title = heading
-            ? heading.innerText.trim()
-            : "Website content";
 
+        foundSections.set(section.id, heading
+            ? heading.innerText.trim()
+            : "Matching content");
+    });
+
+    if (foundSections.size === 0) {
+        results.textContent =
+            "No matching content found. Try another word.";
+        return;
+    }
+
+    const count = document.createElement("p");
+    count.textContent = foundSections.size + " results found.";
+    results.appendChild(count);
+
+    foundSections.forEach((title, id) => {
         const item = document.createElement("p");
         const link = document.createElement("a");
 
-        link.href = "#" + target.id;
+        link.href = "#" + id;
         link.textContent = title;
         link.style.color = "#38bdf8";
 
         item.appendChild(link);
         results.appendChild(item);
-
-        found++;
     });
-
-    if (found === 0) {
-        results.textContent =
-            "No matching content found. Try another word.";
-    }
 }
 
 const searchInput = document.getElementById("siteSearchInput");
@@ -1268,5 +1258,7 @@ if (searchInput) {
     });
 }
 </script>
- </body>
-</html>             
+
+</body>
+</html>
+            
