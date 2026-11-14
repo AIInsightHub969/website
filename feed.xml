@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>AIInsight - Latest AI Articles</title>
+    <link>https://aiinsighthub969.github.io/website/</link>
+    <description>Latest artificial intelligence articles, guides and tutorials from AIInsight.</description>
+    <language>en-us</language>
+
+    <item>
+      <title>AI in Healthcare</title>
+      <link>https://aiinsighthub969.github.io/website/ai-in-healthcare.html</link>
+      <description>Explore how artificial intelligence is transforming healthcare.</description>
+      <guid>https://aiinsighthub969.github.io/website/ai-in-healthcare.html</guid>
+    </item>
+
+    <item>
+      <title>Benefits of Artificial Intelligence</title>
+      <link>https://aiinsighthub969.github.io/website/benefits-of-artificial-intelligence.html</link>
+      <description>Discover the major benefits and applications of artificial intelligence.</description>
+      <guid>https://aiinsighthub969.github.io/website/benefits-of-artificial-intelligence.html</guid>
+    </item>
+
+    <item>
+      <title>AI Agents Explained</title>
+      <link>https://aiinsighthub969.github.io/website/ai-agents-explained.html</link>
+      <description>Understand AI agents and how autonomous AI systems work.</description>
+      <guid>https://aiinsighthub969.github.io/website/ai-agents-explained.html</guid>
+    </item>
+
+  </channel>
+</rss>
