@@ -1333,6 +1333,116 @@ nextButton.onclick = () => {
     }
 };
 </script>
+<section id="guess-ai" style="background:#0f172a; padding:25px; margin:30px 0; border:1px solid #1e293b; border-radius:14px;">
+
+    <h2 style="color:#38bdf8;">🤔 Guess the AI</h2>
+
+    <p>Can you guess which AI tool matches this description?</p>
+
+    <div id="guess-question">
+        Your guessing game will appear here.
+    </div>
+
+    <div id="guess-options"></div>
+
+    <p id="guess-feedback"></p>
+
+    <p id="guess-score">Score: 0</p>
+
+    <button id="guess-next" style="background:#38bdf8; color:#050b16; padding:12px 20px; border:0; border-radius:8px; cursor:pointer;">
+        Start Game
+    </button>
+
+</section>
+<script>
+const guessQuestions = [
+    {
+        question: "🤖 Which AI tool can answer questions and write text?",
+        options: ["ChatGPT", "Google Maps", "Calculator"],
+        answer: "ChatGPT"
+    },
+    {
+        question: "🎨 Which AI tool can generate images?",
+        options: ["Excel", "DALL-E", "Notepad"],
+        answer: "DALL-E"
+    },
+    {
+        question: "🎬 Which AI tool can help create videos?",
+        options: ["Sora", "Paint", "Clock"],
+        answer: "Sora"
+    }
+];
+
+let guessIndex = 0;
+let guessPoints = 0;
+let guessAnswered = false;
+
+const guessQuestion = document.getElementById("guess-question");
+const guessOptions = document.getElementById("guess-options");
+const guessFeedback = document.getElementById("guess-feedback");
+const guessScore = document.getElementById("guess-score");
+const guessNext = document.getElementById("guess-next");
+
+function showGuessQuestion() {
+    guessAnswered = false;
+    const q = guessQuestions[guessIndex];
+
+    guessQuestion.textContent = q.question;
+    guessOptions.innerHTML = "";
+    guessFeedback.textContent = "";
+    guessNext.textContent = "Next Question";
+
+    q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.style.cssText =
+            "display:block; margin:10px 0; padding:12px; width:100%; cursor:pointer; border-radius:8px;";
+
+        btn.onclick = () => {
+            if (guessAnswered) return;
+            guessAnswered = true;
+
+            if (option === q.answer) {
+                guessPoints++;
+                guessFeedback.textContent = "Correct! 🎉";
+            } else {
+                guessFeedback.textContent = "Correct answer: " + q.answer;
+            }
+
+            guessScore.textContent = "Score: " + guessPoints;
+        };
+
+        guessOptions.appendChild(btn);
+    });
+}
+
+guessNext.onclick = () => {
+    if (guessIndex === 0 && !guessAnswered) {
+        showGuessQuestion();
+        return;
+    }
+
+    if (!guessAnswered) {
+        guessFeedback.textContent = "Please select an answer first!";
+        return;
+    }
+
+    guessIndex++;
+
+    if (guessIndex < guessQuestions.length) {
+        showGuessQuestion();
+    } else {
+        guessQuestion.textContent = "Game Completed! 🏆";
+        guessOptions.innerHTML = "";
+        guessFeedback.textContent =
+            "Your score: " + guessPoints + " out of " + guessQuestions.length;
+        guessNext.textContent = "Play Again";
+
+        guessNext.onclick = () => location.reload();
+    }
+};
+</script>
+    
 </body>
 </html>
             
