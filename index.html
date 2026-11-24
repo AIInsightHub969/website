@@ -1212,6 +1212,127 @@ if (searchInput) {
 }
 </script>
 
+    <section id="ai-quiz" style="background:#0f172a; padding:25px; margin:30px 0; border:1px solid #1e293b; border-radius:14px;">
+
+    <h2 style="color:#38bdf8;">🎮 AI Quiz Challenge</h2>
+
+    <p>Test your AI knowledge and earn points!</p>
+
+    <div id="quiz-question">
+        Your AI Quiz will appear here.
+    </div>
+
+    <div id="quiz-options"></div>
+
+    <p id="quiz-feedback"></p>
+
+    <p id="quiz-score">Score: 0</p>
+
+    <button id="quiz-next" style="background:#38bdf8; color:#050b16; padding:12px 20px; border:0; border-radius:8px; cursor:pointer;">
+        Start Quiz
+    </button>
+
+</section>
+<script>
+const quizQuestions = [
+    {
+        question: "What does AI stand for?",
+        options: ["Artificial Intelligence", "Automatic Internet", "Advanced Information"],
+        answer: "Artificial Intelligence"
+    },
+    {
+        question: "Which is an example of AI?",
+        options: ["Calculator", "ChatGPT", "Keyboard"],
+        answer: "ChatGPT"
+    },
+    {
+        question: "What does AI learn from?",
+        options: ["Data", "Water", "Electricity only"],
+        answer: "Data"
+    },
+    {
+        question: "Which AI tool creates images?",
+        options: ["Google Maps", "DALL-E", "Notepad"],
+        answer: "DALL-E"
+    },
+    {
+        question: "Can AI make mistakes?",
+        options: ["Yes", "No", "Never"],
+        answer: "Yes"
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+const questionBox = document.getElementById("quiz-question");
+const optionsBox = document.getElementById("quiz-options");
+const feedbackBox = document.getElementById("quiz-feedback");
+const scoreBox = document.getElementById("quiz-score");
+const nextButton = document.getElementById("quiz-next");
+
+function showQuestion() {
+    answered = false;
+    const q = quizQuestions[currentQuestion];
+
+    questionBox.textContent = q.question;
+    optionsBox.innerHTML = "";
+    feedbackBox.textContent = "";
+    nextButton.textContent = "Next Question";
+
+    q.options.forEach(option => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.style.cssText =
+            "display:block; margin:10px 0; padding:12px; width:100%; cursor:pointer; border-radius:8px;";
+
+        button.onclick = () => checkAnswer(option);
+        optionsBox.appendChild(button);
+    });
+}
+
+function checkAnswer(selected) {
+    if (answered) return;
+    answered = true;
+
+    const correct = quizQuestions[currentQuestion].answer;
+
+    if (selected === correct) {
+        score++;
+        feedbackBox.textContent = "Correct! 🎉";
+    } else {
+        feedbackBox.textContent = "Incorrect! Correct answer: " + correct;
+    }
+
+    scoreBox.textContent = "Score: " + score;
+}
+
+nextButton.onclick = () => {
+    if (currentQuestion === 0 && !answered) {
+        showQuestion();
+        return;
+    }
+
+    if (!answered) {
+        feedbackBox.textContent = "Please select an answer first!";
+        return;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < quizQuestions.length) {
+        showQuestion();
+    } else {
+        questionBox.textContent = "Quiz Completed! 🏆";
+        optionsBox.innerHTML = "";
+        feedbackBox.textContent =
+            "You scored " + score + " out of " + quizQuestions.length + "!";
+        nextButton.textContent = "Play Again";
+        nextButton.onclick = () => location.reload();
+    }
+};
+</script>
 </body>
 </html>
             
