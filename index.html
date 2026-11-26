@@ -1231,7 +1231,9 @@ if (searchInput) {
     <button id="quiz-next" style="background:#38bdf8; color:#050b16; padding:12px 20px; border:0; border-radius:8px; cursor:pointer;">
         Start Quiz
     </button>
-
+<button id="quiz-back" style="background:#1e293b; color:white; padding:12px 20px; border:0; border-radius:8px; cursor:pointer;">
+    Previous Question
+</button>
 </section>
 <script>
 const quizQuestions = [
@@ -1265,20 +1267,28 @@ const quizQuestions = [
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
-
+let quizAnswers = [];
 const questionBox = document.getElementById("quiz-question");
 const optionsBox = document.getElementById("quiz-options");
 const feedbackBox = document.getElementById("quiz-feedback");
 const scoreBox = document.getElementById("quiz-score");
 const nextButton = document.getElementById("quiz-next");
-
+const backButton = document.getElementById("quiz-back");
 function showQuestion() {
-    answered = false;
+    answered = quizAnswers[currentQuestion] !== undefined;
     const q = quizQuestions[currentQuestion];
 
     questionBox.textContent = q.question;
     optionsBox.innerHTML = "";
     feedbackBox.textContent = "";
+    if (answered) {
+    const correct = quizQuestions[currentQuestion].answer;
+    const previousAnswer = quizAnswers[currentQuestion];
+
+    feedbackBox.textContent = previousAnswer === correct
+        ? "Correct! 🎉"
+        : "Incorrect! Correct answer: " + correct;
+}
     nextButton.textContent = "Next Question";
 
     q.options.forEach(option => {
@@ -1293,21 +1303,29 @@ function showQuestion() {
 }
 
 function checkAnswer(selected) {
-    if (answered) return;
+  
+
+    quizAnswers[currentQuestion] = selected;
     answered = true;
 
     const correct = quizQuestions[currentQuestion].answer;
 
     if (selected === correct) {
-        score++;
         feedbackBox.textContent = "Correct! 🎉";
     } else {
         feedbackBox.textContent = "Incorrect! Correct answer: " + correct;
     }
 
+    score = quizAnswers.reduce((total, answer, index) => {
+        return total + (answer === quizQuestions[index].answer ? 1 : 0);
+    }, 0);
+
     scoreBox.textContent = "Score: " + score;
 }
-
+nextButton.onclick = () => {
+    if (currentQuestion === 0 && !answered) {
+        showQuestion();
+        return;
 nextButton.onclick = () => {
     if (currentQuestion === 0 && !answered) {
         showQuestion();
@@ -1330,6 +1348,12 @@ nextButton.onclick = () => {
             "You scored " + score + " out of " + quizQuestions.length + "!";
         nextButton.textContent = "Play Again";
         nextButton.onclick = () => location.reload();
+    }
+};
+        backButton.onclick = () => {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion();
     }
 };
 </script>
